@@ -5,14 +5,24 @@ class Observable<T> {
 
   set property(T newValue) {
     _property = newValue;
-    if (callback != null) {
-      callback.action();
+    for (var callback in _callbacks) {
+      callback?.action();
     }
   }
 
   Observable(this._property);
 
-  ObservableCallback callback;
+  Set<ObservableCallback> _callbacks = Set<ObservableCallback>();
+
+  void dispose() {
+    _callbacks?.clear();
+    property = null;
+  }
+
+  Observable<T> addCallback(ObservableCallback callback) {
+    _callbacks.add(callback);
+    return this;
+  }
 }
 
 class ObservableCallback {

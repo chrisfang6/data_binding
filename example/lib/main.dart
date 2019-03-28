@@ -43,6 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             binding(_viewModel.label, LabelWidgetBuilder()),
             binding(_viewModel.clickNumber, NumberWidgetBuilder()),
+            binding(_viewModel.clickNumber, NumberWidgetBuilder()),
           ],
         ),
       ),

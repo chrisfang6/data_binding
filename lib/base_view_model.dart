@@ -18,9 +18,7 @@ abstract class BaseViewModel extends CommandReceiver {
 
   _removeAllObservables() {
     for (Observable observable in _observables) {
-      observable?.callback?.action = null;
-      observable?.callback = null;
-      observable?.property = null;
+      observable?.dispose();
     }
     _observables?.clear();
   }

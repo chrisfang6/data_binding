@@ -12,7 +12,7 @@ StatefulWidget binding<T, B extends BindingWidgetBuilder>(
     Observable<T> observable, B widgetBuilder,
     {Widget child, BuildContext context}) {
   var bloc = _BaseBloc<T>();
-  observable.callback = ObservableCallback(() => bloc._sink.add(observable));
+  observable.addCallback(ObservableCallback(() => bloc._sink.add(observable)));
   return _BlocProvider(
     bloc: bloc,
     child: StreamBuilder<Observable<T>>(
