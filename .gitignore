@@ -31,3 +31,8 @@ doc/api/
 
 # Visual Studio Code related
 .vscode/
+
+# Others
+**/*/.project
+**/*/.settings/
+**/*/flutter_export_environment.sh
