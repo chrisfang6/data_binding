@@ -1,7 +1,6 @@
 name: data_binding
-description: Library for data binding.
-version: 0.2.2
-author: Chris Fang <chrisfang6@gmail.com>
+description: Library data_binding is an observable data holder class. It is lifecycle-aware, meaning it respects the lifecycle of widgets. This awareness ensures it only updates widget observers that are in an active lifecycle state.
+version: 0.2.3
 homepage: https://github.com/chrisfang6/data_binding
 
 environment:

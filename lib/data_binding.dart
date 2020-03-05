@@ -21,8 +21,6 @@ import 'package:data_binding/base_widget.dart';
 import 'package:data_binding/observable.dart';
 import 'package:flutter/cupertino.dart';
 
-Type _typeOf<T>() => T;
-
 StatefulWidget binding<T, B extends BindingWidgetBuilder>(
     Observable<T> observable, B widgetBuilder,
     {Widget child, BuildContext context}) {
@@ -35,10 +33,10 @@ StatefulWidget binding<T, B extends BindingWidgetBuilder>(
       initialData: observable,
       builder: (BuildContext context, AsyncSnapshot<Observable<T>> snapshot) =>
           widgetBuilder.build(
-            snapshot.data.property,
-            child: child,
-            context: context,
-          ),
+        snapshot.data.property,
+        child: child,
+        context: context,
+      ),
     ),
   );
 }
@@ -66,10 +64,7 @@ class _BlocProvider<T extends _BaseBloc> extends StatefulWidget {
       _BlocProviderState<_BlocProvider<T>>();
 
   static T of<T extends _BaseBloc>(BuildContext context) =>
-      (context.ancestorWidgetOfExactType(
-        _typeOf<_BlocProvider<T>>(),
-      ) as _BlocProvider<T>)
-          .bloc;
+      context.findAncestorWidgetOfExactType<_BlocProvider<T>>().bloc;
 }
 
 class _BlocProviderState<T extends _BlocProvider> extends State<T> {
